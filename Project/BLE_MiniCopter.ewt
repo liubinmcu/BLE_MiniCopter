@@ -180,7 +180,25 @@
     </file>
   </group>
   <group>
+    <name>App_Tasks</name>
+    <file>
+      <name>$PROJ_DIR$\..\App_Tasks\app_task_led.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\App_Tasks\app_task_main.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\App_Tasks\app_task_pwm.c</name>
+    </file>
+  </group>
+  <group>
     <name>Application</name>
+    <file>
+      <name>$PROJ_DIR$\..\Application\app_global_include.h</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Application\FreeRTOSConfig.h</name>
+    </file>
     <file>
       <name>$PROJ_DIR$\..\Application\main.c</name>
     </file>
@@ -275,7 +293,7 @@
       <name>$PROJ_DIR$\..\nRF_Libraries\pwm\app_pwm.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\nRF_Libraries\timer\app_timer.c</name>
+      <name>$PROJ_DIR$\..\nRF_Libraries\timer\app_timer_freertos.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\nRF_Libraries\uart\app_uart_fifo.c</name>
@@ -324,6 +342,39 @@
     <name>nRF_SoftDevice</name>
     <file>
       <name>$PROJ_DIR$\..\nRF_SoftDevice\common\softdevice_handler\softdevice_handler.c</name>
+    </file>
+  </group>
+  <group>
+    <name>RTOS</name>
+    <file>
+      <name>$PROJ_DIR$\..\RTOS\freertos\source\croutine.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\RTOS\freertos\source\event_groups.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\RTOS\freertos\source\portable\MemMang\heap_1.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\RTOS\freertos\source\list.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\RTOS\freertos\portable\IAR\nrf51\port.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\RTOS\freertos\portable\CMSIS\nrf51\port_cmsis.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\RTOS\freertos\portable\CMSIS\nrf51\port_cmsis_systick.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\RTOS\freertos\source\queue.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\RTOS\freertos\source\tasks.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\RTOS\freertos\source\timers.c</name>
     </file>
   </group>
 </project>

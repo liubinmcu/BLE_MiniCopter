@@ -68,6 +68,11 @@
 #include "app_drv_pwm.h"
 #include "app_drv_led.h"
 
+#include "FreeRTOS.h"
+#include "task.h"
+#include "nrf_drv_clock.h"
+#include "app_task_led.h"
+#include "app_task_main.h"
 
 
 #define IS_SRVC_CHANGED_CHARACT_PRESENT 0                                           /**< Include the service_changed characteristic. If not enabled, the server's database cannot be changed for the lifetime of the device. */
@@ -605,27 +610,6 @@ static void advertising_init(void)
     APP_ERROR_CHECK(err_code);
 }
 
-
-/**@brief Function for initializing buttons and leds.
- *
- * @param[out] p_erase_bonds  Will be true if the clear bonding button was pressed to wake the application up.
- */
-static void buttons_leds_init(bool * p_erase_bonds)
-{
-    bsp_event_t startup_event;
-
-    uint32_t err_code = bsp_init(BSP_INIT_LED | BSP_INIT_BUTTONS,
-                                 APP_TIMER_TICKS(100, APP_TIMER_PRESCALER),
-                                 bsp_event_handler);
-    APP_ERROR_CHECK(err_code);
-
-    err_code = bsp_btn_ble_init(NULL, &startup_event);
-    APP_ERROR_CHECK(err_code);
-
-    *p_erase_bonds = (startup_event == BSP_EVENT_CLEAR_BONDING_DATA);
-}
-
-
 /**@brief Function for placing the application in low power state while waiting for events.
  */
 static void power_manage(void)
@@ -640,30 +624,41 @@ static void power_manage(void)
 int main(void)
 {
     uint32_t err_code;
-    bool erase_bonds;
 
     // Initialize.
-    //初始化定时器模块，使其用于调度
+    /* Initialize clock driver for better time accuracy in FREERTOS */
+    err_code = nrf_drv_clock_init();
+    APP_ERROR_CHECK(err_code);
+    
+    //
     APP_TIMER_INIT(APP_TIMER_PRESCALER, APP_TIMER_OP_QUEUE_SIZE, false);
     uart_init();
-
-//    buttons_leds_init(&erase_bonds);
-    ble_stack_init();   //协议栈初始化
-    gap_params_init();  //gap初始化
-    services_init();    //服务初始化
-    advertising_init(); //广播初始化
-    conn_params_init(); //更新过程初始化
-
-    printf("\r\nUART Start!\r\n");
-    err_code = ble_advertising_start(BLE_ADV_MODE_FAST);    //广播开始
-    APP_ERROR_CHECK(err_code);
-
+    app_drv_led_init();
     app_drv_pwm_init();
+    
+    ble_stack_init();   
+    gap_params_init();  
+    services_init();    
+    advertising_init(); 
+    conn_params_init(); 
+    
+    printf("\r\nUART Start!\r\n");
+    err_code = ble_advertising_start(BLE_ADV_MODE_FAST);   
+    APP_ERROR_CHECK(err_code);
+/* Create task for LED0 blinking with priority set to 2 */
+//    xTaskCreate(app_task_led_blink, "LED0", configMINIMAL_STACK_SIZE + 200, NULL, 2, NULL);
+    xTaskCreate(app_task_main, "MainThread", configMINIMAL_STACK_SIZE + 200, NULL, configMAX_PRIORITIES - 1, NULL);
+
 //    app_drv_pwm_set_value(5, 5, 10, 10);
 //    app_drv_pwm_set_value(15, 15, 20, 20);
 //    app_drv_pwm_set_value(25, 25, 30, 30);
 //    app_drv_pwm_set_value(75, 75, 70, 70);
+    
+    /* Activate deep sleep mode */
+    SCB->SCR |= SCB_SCR_SLEEPDEEP_Msk;
 
+    /* Start FreeRTOS scheduler. */
+    vTaskStartScheduler();
     // Enter main loop.
     for (;;)
     {
