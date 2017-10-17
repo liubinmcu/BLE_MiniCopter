@@ -1932,6 +1932,9 @@
   <group>
     <name>App_Drivers</name>
     <file>
+      <name>$PROJ_DIR$\..\App_Drivers\app_drv_button.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\App_Drivers\app_drv_led.c</name>
     </file>
     <file>
@@ -1975,6 +1978,9 @@
     <name>Board_Definition</name>
     <file>
       <name>$PROJ_DIR$\..\Board_Definition\boards.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Board_Definition\bsp_hardware.c</name>
     </file>
   </group>
   <group>

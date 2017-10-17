@@ -38,41 +38,11 @@
  * 
  */
 
-/** @file
- *
- * @defgroup blinky_example_main main.c
- * @{
- * @ingroup blinky_example
- * @brief Blinky Example Application main file.
- *
- * This file contains the source code for a sample application to blink LEDs.
- *
- */
-
-#include <stdint.h>
-#include <string.h>
-#include "nordic_common.h"
-#include "nrf.h"
-#include "ble_hci.h"
-#include "ble_advdata.h"
-#include "ble_advertising.h"
-#include "ble_conn_params.h"
-#include "softdevice_handler.h"
-#include "app_timer.h"
-#include "app_button.h"
-#include "ble_nus.h"
-#include "app_uart.h"
-#include "app_util_platform.h"
-#include "bsp.h"
-#include "bsp_btn_ble.h"
-#include "app_drv_pwm.h"
-#include "app_drv_led.h"
-
-#include "FreeRTOS.h"
-#include "task.h"
-#include "nrf_drv_clock.h"
-#include "app_task_led.h"
 #include "app_task_main.h"
+#include "app_global_include.h"
+
+
+
 
 
 /**
@@ -80,33 +50,20 @@
  */
 int main(void)
 {
-    uint32_t err_code;
+    bsp_hardware_init();
 
-    // Initialize.
-    /* Initialize clock driver for better time accuracy in FREERTOS */
-    err_code = nrf_drv_clock_init();
-    APP_ERROR_CHECK(err_code);
-    
-    //
-    APP_TIMER_INIT(APP_TIMER_PRESCALER, APP_TIMER_OP_QUEUE_SIZE, false);
-    app_drv_uart_init();
-    app_drv_led_init();
-    app_drv_pwm_init();
-    
-/* Create task for LED0 blinking with priority set to 2 */
-//    xTaskCreate(app_task_led_blink, "LED0", configMINIMAL_STACK_SIZE + 200, NULL, 2, NULL);
     xTaskCreate(app_task_main, "MainThread", configMINIMAL_STACK_SIZE + 200, NULL, configMAX_PRIORITIES - 1, NULL);
 
-    
     /* Activate deep sleep mode */
     SCB->SCR |= SCB_SCR_SLEEPDEEP_Msk;
 
     /* Start FreeRTOS scheduler. */
     vTaskStartScheduler();
+    
     // Enter main loop.
     for (;;)
     {
-//        power_manage();
+
     }
 
 }
