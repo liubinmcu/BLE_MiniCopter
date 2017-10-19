@@ -1,6 +1,7 @@
 #include "app_task_comm.h"
 #include "app_global_include.h"
 
+
 #include "nordic_common.h"
 #include "nrf.h"
 #include "ble_hci.h"
@@ -21,6 +22,82 @@
 static ble_nus_t                        m_nus;                                      /**< Structure to identify the Nordic UART Service. */
 static uint16_t                         m_conn_handle = BLE_CONN_HANDLE_INVALID;    /**< Handle of the current connection. */
 static ble_uuid_t                       m_adv_uuids[] = {{BLE_UUID_NUS_SERVICE, NUS_SERVICE_UUID_TYPE}};  /**< Universally unique service identifier. */
+
+//串口通信初始化
+/**@brief   Function for handling app_uart events.
+ *
+ * @details This function will receive a single character from the app_uart module and append it to
+ *          a string. The string will be be sent over BLE when the last character received was a
+ *          'new line' i.e '\r\n' (hex 0x0D) or if the string has reached a length of
+ *          @ref NUS_MAX_DATA_LENGTH.
+ */
+/**@snippet [Handling the data received over UART] */
+void uart_event_handle(app_uart_evt_t * p_event)
+{
+    static uint8_t data_array[BLE_NUS_MAX_DATA_LEN];
+    static uint8_t index = 0;
+    uint32_t       err_code;
+
+    switch (p_event->evt_type)
+    {
+        case APP_UART_DATA_READY:
+            UNUSED_VARIABLE(app_uart_get(&data_array[index]));
+            index++;
+
+            if ((data_array[index - 1] == '\n') || (index >= (BLE_NUS_MAX_DATA_LEN)))
+            {
+                err_code = ble_nus_string_send(&m_nus, data_array, index);
+                if (err_code != NRF_ERROR_INVALID_STATE)
+                {
+                    APP_ERROR_CHECK(err_code);
+                }
+
+                index = 0;
+            }
+            break;
+
+        case APP_UART_COMMUNICATION_ERROR:
+            APP_ERROR_HANDLER(p_event->data.error_communication);
+            break;
+
+        case APP_UART_FIFO_ERROR:
+            APP_ERROR_HANDLER(p_event->data.error_code);
+            break;
+
+        default:
+            break;
+    }
+}
+/**@snippet [Handling the data received over UART] */
+
+/**@brief  Function for initializing the UART module.
+ */
+/**@snippet [UART Initialization] */
+static void app_task_comm_uart_init(void)
+{
+    uint32_t                     err_code;
+    const app_uart_comm_params_t comm_params =
+    {
+        RX_PIN_NUMBER,
+        TX_PIN_NUMBER,
+        RTS_PIN_NUMBER,
+        CTS_PIN_NUMBER,
+        APP_UART_FLOW_CONTROL_DISABLED,
+        false,
+        UART_BAUDRATE_BAUDRATE_Baud115200
+    };
+
+    APP_UART_FIFO_INIT( &comm_params,
+                       UART_RX_BUF_SIZE,
+                       UART_TX_BUF_SIZE,
+                       uart_event_handle,
+                       APP_IRQ_PRIORITY_LOWEST,
+                       err_code);
+    APP_ERROR_CHECK(err_code);
+
+    printf("\r\nUART Start!\r\n");
+}
+/**@snippet [UART Initialization] */
 
 /**@brief Function for assert macro callback.
  *
@@ -453,13 +530,15 @@ static void power_manage(void)
 static void app_task_comm_init(void)
 {
     uint32_t err_code;
-    ble_stack_init();   
-    gap_params_init();  
-    services_init();    
-    advertising_init(); 
-    conn_params_init(); 
+    app_task_comm_uart_init();
     
-    err_code = ble_advertising_start(BLE_ADV_MODE_FAST);   
+    ble_stack_init();  //必须:协议栈初始化，设置时钟
+    gap_params_init(); //必须:GAP一些参数的设置,设置设备名,设置PPCP(外围设备首选链接参数)
+    services_init();   //服务初始化,添加uart的串口服务。 
+    advertising_init();//必须:设置广播数据以及扫描响应数据 
+    conn_params_init();//非必须:链接参数设置。主要设置什么时候发起更新链接参数请求以及间隔和最大尝试次数。 
+    
+    err_code = ble_advertising_start(BLE_ADV_MODE_FAST);   //必须:开启广播
     APP_ERROR_CHECK(err_code);
 }
 

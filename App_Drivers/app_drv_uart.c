@@ -1,7 +1,7 @@
 #include "app_drv_uart.h"
-#include "app_uart.h"
-#include "ble_nus.h"
-#include "bsp.h"
+#include "app_global_include.h"
+
+
 
 static ble_nus_t                        m_nus;
 

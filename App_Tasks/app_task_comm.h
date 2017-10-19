@@ -1,6 +1,11 @@
 #ifndef __APP_TASK_COMM_H
 #define __APP_TASK_COMM_H
 
+
+#define UART_TX_BUF_SIZE                256                                         /**< UART TX buffer size. */
+#define UART_RX_BUF_SIZE                256 
+
+
 #define IS_SRVC_CHANGED_CHARACT_PRESENT 0                                           /**< Include the service_changed characteristic. If not enabled, the server's database cannot be changed for the lifetime of the device. */
 
 #if (NRF_SD_BLE_API_VERSION == 3)
@@ -26,7 +31,9 @@
 #define NEXT_CONN_PARAMS_UPDATE_DELAY   APP_TIMER_TICKS(30000, APP_TIMER_PRESCALER) /**< Time between each call to sd_ble_gap_conn_param_update after the first call (30 seconds). */
 #define MAX_CONN_PARAMS_UPDATE_COUNT    3                                           /**< Number of attempts before giving up the connection parameter negotiation. */
 
-#define DEAD_BEEF                       0xDEADBEEF 
+#define DEAD_BEEF                       0xDEADBEEF
+
+
 
 void app_task_comm (void * pvParameter);
 

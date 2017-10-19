@@ -1940,9 +1940,6 @@
     <file>
       <name>$PROJ_DIR$\..\App_Drivers\app_drv_pwm.c</name>
     </file>
-    <file>
-      <name>$PROJ_DIR$\..\App_Drivers\app_drv_uart.c</name>
-    </file>
   </group>
   <group>
     <name>App_Tasks</name>
