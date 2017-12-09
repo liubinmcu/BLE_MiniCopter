@@ -243,27 +243,6 @@
     </file>
   </group>
   <group>
-    <name>nRF_BLE</name>
-    <file>
-      <name>$PROJ_DIR$\..\nRF_BLE\common\ble_advdata.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\nRF_BLE\ble_advertising\ble_advertising.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\nRF_BLE\common\ble_conn_params.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\nRF_BLE\common\ble_srv_common.c</name>
-    </file>
-  </group>
-  <group>
-    <name>nRF_BLE_Services</name>
-    <file>
-      <name>$PROJ_DIR$\..\nRF_BLE\ble_services\ble_nus\ble_nus.c</name>
-    </file>
-  </group>
-  <group>
     <name>nRF_Drivers</name>
     <file>
       <name>$PROJ_DIR$\..\nRF_Drivers\clock\nrf_drv_clock.c</name>
@@ -345,12 +324,6 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\nRF_Segger_RTT\SEGGER_RTT_printf.c</name>
-    </file>
-  </group>
-  <group>
-    <name>nRF_SoftDevice</name>
-    <file>
-      <name>$PROJ_DIR$\..\nRF_SoftDevice\common\softdevice_handler\softdevice_handler.c</name>
     </file>
   </group>
   <group>

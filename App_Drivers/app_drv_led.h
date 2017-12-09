@@ -7,12 +7,12 @@
 #define LEDS_NUMBER    4
 
 
-#define APP_BSP_LED_0          21
-#define APP_BSP_LED_1          22
-#define APP_BSP_LED_2          23
-#define APP_BSP_LED_3          24
+#define APP_BSP_LED_0          24
+#define APP_BSP_LED_1          25
+#define APP_BSP_LED_2          21
+#define APP_BSP_LED_3          22
 
-#define LEDS_ACTIVE_STATE 0
+#define APP_LEDS_ACTIVE_STATE 1
 
 void app_drv_led_init(void);
 void app_drv_led_gpio_output(uint32_t led_num);

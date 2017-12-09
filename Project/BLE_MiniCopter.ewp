@@ -99,7 +99,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>nrf51422_xxac	nRF51422_xxAC</state>
+          <state>nrf51822_xxaa	nRF51822_xxAA</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -171,10 +171,10 @@
           <state>BLE_STACK_SUPPORT_REQD</state>
           <state>NRF51422</state>
           <state>BOARD_PCA10028</state>
-          <state>NRF_SD_BLE_API_VERSION=2</state>
-          <state>S130</state>
+          <state>xNRF_SD_BLE_API_VERSION=2</state>
+          <state>xS130</state>
           <state>NRF51</state>
-          <state>SOFTDEVICE_PRESENT</state>
+          <state>xSOFTDEVICE_PRESENT</state>
           <state>SWI_DISABLE0</state>
           <state>FREERTOS</state>
           <state>__STACK_SIZE=2048</state>
@@ -2002,27 +2002,6 @@
     </file>
   </group>
   <group>
-    <name>nRF_BLE</name>
-    <file>
-      <name>$PROJ_DIR$\..\nRF_BLE\common\ble_advdata.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\nRF_BLE\ble_advertising\ble_advertising.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\nRF_BLE\common\ble_conn_params.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\nRF_BLE\common\ble_srv_common.c</name>
-    </file>
-  </group>
-  <group>
-    <name>nRF_BLE_Services</name>
-    <file>
-      <name>$PROJ_DIR$\..\nRF_BLE\ble_services\ble_nus\ble_nus.c</name>
-    </file>
-  </group>
-  <group>
     <name>nRF_Drivers</name>
     <file>
       <name>$PROJ_DIR$\..\nRF_Drivers\clock\nrf_drv_clock.c</name>
@@ -2104,12 +2083,6 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\nRF_Segger_RTT\SEGGER_RTT_printf.c</name>
-    </file>
-  </group>
-  <group>
-    <name>nRF_SoftDevice</name>
-    <file>
-      <name>$PROJ_DIR$\..\nRF_SoftDevice\common\softdevice_handler\softdevice_handler.c</name>
     </file>
   </group>
   <group>

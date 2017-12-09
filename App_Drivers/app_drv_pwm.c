@@ -25,7 +25,7 @@ void app_drv_pwm_init(void)
     ret_code_t err_code;
 
     /* 2-channel PWM, 200Hz, output on DK LED pins. */
-    app_pwm_config_t pwm1_cfg = APP_PWM_DEFAULT_CONFIG_2CH(5000L, BSP_LED_0, BSP_LED_1);
+    app_pwm_config_t pwm1_cfg = APP_PWM_DEFAULT_CONFIG_2CH(5000L, APP_BSP_MOTOR_0, APP_BSP_MOTOR_1);
 
     /* Initialize and enable PWM. */
     err_code = app_pwm_init(&PWM1,&pwm1_cfg,pwm_ready_callback);
@@ -33,12 +33,15 @@ void app_drv_pwm_init(void)
     app_pwm_enable(&PWM1);
     
     /* 2-channel PWM, 200Hz, output on DK LED pins. */
-    app_pwm_config_t pwm2_cfg = APP_PWM_DEFAULT_CONFIG_2CH(5000L, BSP_LED_2, BSP_LED_3);
+    app_pwm_config_t pwm2_cfg = APP_PWM_DEFAULT_CONFIG_2CH(5000L, APP_BSP_MOTOR_2, APP_BSP_MOTOR_3);
 
     /* Initialize and enable PWM. */
     err_code = app_pwm_init(&PWM2,&pwm2_cfg,pwm_ready_callback2);
     APP_ERROR_CHECK(err_code);
     app_pwm_enable(&PWM2);
+
+    app_drv_pwm_set_value(10, 50, 50, 50);
+
 }
 
 void app_drv_pwm_set_value(uint8_t value1, uint8_t value2, uint8_t value3, uint8_t value4)
