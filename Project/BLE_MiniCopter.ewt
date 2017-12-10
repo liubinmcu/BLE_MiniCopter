@@ -185,9 +185,6 @@
   <group>
     <name>App_Tasks</name>
     <file>
-      <name>$PROJ_DIR$\..\App_Tasks\app_task_comm.c</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\..\App_Tasks\app_task_led.c</name>
     </file>
     <file>
@@ -312,6 +309,12 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\nRF_Libraries\log\src\nrf_log_frontend.c</name>
+    </file>
+  </group>
+  <group>
+    <name>nRF_Properitary_RF</name>
+    <file>
+      <name>$PROJ_DIR$\..\nRF_Properitary_RF\esb\nrf_esb.c</name>
     </file>
   </group>
   <group>

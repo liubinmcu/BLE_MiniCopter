@@ -99,7 +99,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>nrf51822_xxaa	nRF51822_xxAA</state>
+          <state>nrf51422_xxac	nRF51422_xxAC</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -168,13 +168,15 @@
         <debug>1</debug>
         <option>
           <name>CCDefines</name>
-          <state>BLE_STACK_SUPPORT_REQD</state>
+          <state>xS130</state>
+          <state>xNRF_SD_BLE_API_VERSION=2</state>
+          <state>xSOFTDEVICE_PRESENT</state>
+          <state>xBLE_STACK_SUPPORT_REQD</state>
+          <state>ESB_PRESENT</state>
+          <state>xBSP_DEFINES_ONLY</state>
           <state>NRF51422</state>
           <state>BOARD_PCA10028</state>
-          <state>xNRF_SD_BLE_API_VERSION=2</state>
-          <state>xS130</state>
           <state>NRF51</state>
-          <state>xSOFTDEVICE_PRESENT</state>
           <state>SWI_DISABLE0</state>
           <state>FREERTOS</state>
           <state>__STACK_SIZE=2048</state>
@@ -333,6 +335,7 @@
           <state>$PROJ_DIR$\..\nRF_Libraries\uart</state>
           <state>$PROJ_DIR$\..\nRF_Libraries\util</state>
           <state>$PROJ_DIR$\..\nRF_Libraries\experimental_section_vars</state>
+          <state>$PROJ_DIR$\..\nRF_Properitary_RF\esb</state>
           <state>$PROJ_DIR$\..\nRF_Segger_RTT</state>
           <state>$PROJ_DIR$\..\nRF_SoftDevice\common\softdevice_handler</state>
           <state>$PROJ_DIR$\..\nRF_SoftDevice\s130\headers</state>
@@ -756,7 +759,7 @@
         </option>
         <option>
           <name>IlinkIcfFile</name>
-          <state>$PROJ_DIR$\ble_app_uart_iar_nRF5x.icf</state>
+          <state>$PROJ_DIR$\blinky_iar_nRF5x.icf</state>
         </option>
         <option>
           <name>IlinkIcfFileSlave</name>
@@ -1944,9 +1947,6 @@
   <group>
     <name>App_Tasks</name>
     <file>
-      <name>$PROJ_DIR$\..\App_Tasks\app_task_comm.c</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\..\App_Tasks\app_task_led.c</name>
     </file>
     <file>
@@ -2071,6 +2071,12 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\nRF_Libraries\log\src\nrf_log_frontend.c</name>
+    </file>
+  </group>
+  <group>
+    <name>nRF_Properitary_RF</name>
+    <file>
+      <name>$PROJ_DIR$\..\nRF_Properitary_RF\esb\nrf_esb.c</name>
     </file>
   </group>
   <group>

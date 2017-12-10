@@ -6,213 +6,213 @@
 #ifdef USE_APP_CONFIG
 #include "app_config.h"
 #endif
-// <h> nRF_BLE 
-
-//==========================================================
-// <q> BLE_ADVERTISING_ENABLED  - ble_advertising - Advertising module
- 
-
-#ifndef BLE_ADVERTISING_ENABLED
-#define BLE_ADVERTISING_ENABLED 1
-#endif
-
-// <q> BLE_DTM_ENABLED  - ble_dtm - Module for testing RF/PHY using DTM commands
- 
-
-#ifndef BLE_DTM_ENABLED
-#define BLE_DTM_ENABLED 0
-#endif
-
-// <q> BLE_RACP_ENABLED  - ble_racp - Record Access Control Point library
- 
-
-#ifndef BLE_RACP_ENABLED
-#define BLE_RACP_ENABLED 0
-#endif
-
-// <q> NRF_BLE_QWR_ENABLED  - nrf_ble_qwr - Queued writes support module (prepare/execute write)
- 
-
-#ifndef NRF_BLE_QWR_ENABLED
-#define NRF_BLE_QWR_ENABLED 0
-#endif
-
-// <q> PEER_MANAGER_ENABLED  - peer_manager - Peer Manager
- 
-
-#ifndef PEER_MANAGER_ENABLED
-#define PEER_MANAGER_ENABLED 0
-#endif
-
-// </h> 
-//==========================================================
-
-// <h> nRF_BLE_Services 
-
-//==========================================================
-// <q> BLE_ANCS_C_ENABLED  - ble_ancs_c - Apple Notification Service Client
- 
-
-#ifndef BLE_ANCS_C_ENABLED
-#define BLE_ANCS_C_ENABLED 0
-#endif
-
-// <q> BLE_ANS_C_ENABLED  - ble_ans_c - Alert Notification Service Client
- 
-
-#ifndef BLE_ANS_C_ENABLED
-#define BLE_ANS_C_ENABLED 0
-#endif
-
-// <q> BLE_BAS_C_ENABLED  - ble_bas_c - Battery Service Client
- 
-
-#ifndef BLE_BAS_C_ENABLED
-#define BLE_BAS_C_ENABLED 0
-#endif
-
-// <q> BLE_BAS_ENABLED  - ble_bas - Battery Service
- 
-
-#ifndef BLE_BAS_ENABLED
-#define BLE_BAS_ENABLED 0
-#endif
-
-// <q> BLE_CSCS_ENABLED  - ble_cscs - Cycling Speed and Cadence Service
- 
-
-#ifndef BLE_CSCS_ENABLED
-#define BLE_CSCS_ENABLED 0
-#endif
-
-// <q> BLE_CTS_C_ENABLED  - ble_cts_c - Current Time Service Client
- 
-
-#ifndef BLE_CTS_C_ENABLED
-#define BLE_CTS_C_ENABLED 0
-#endif
-
-// <q> BLE_DIS_ENABLED  - ble_dis - Device Information Service
- 
-
-#ifndef BLE_DIS_ENABLED
-#define BLE_DIS_ENABLED 0
-#endif
-
-// <q> BLE_GLS_ENABLED  - ble_gls - Glucose Service
- 
-
-#ifndef BLE_GLS_ENABLED
-#define BLE_GLS_ENABLED 0
-#endif
-
-// <q> BLE_HIDS_ENABLED  - ble_hids - Human Interface Device Service
- 
-
-#ifndef BLE_HIDS_ENABLED
-#define BLE_HIDS_ENABLED 0
-#endif
-
-// <e> BLE_HRS_C_ENABLED - ble_hrs_c - Heart Rate Service Client
-//==========================================================
-#ifndef BLE_HRS_C_ENABLED
-#define BLE_HRS_C_ENABLED 0
-#endif
-#if  BLE_HRS_C_ENABLED
-// <o> BLE_HRS_C_RR_INTERVALS_MAX_CNT - Maximum number of RR_INTERVALS per notification to be decoded 
-#ifndef BLE_HRS_C_RR_INTERVALS_MAX_CNT
-#define BLE_HRS_C_RR_INTERVALS_MAX_CNT 30
-#endif
-
-#endif //BLE_HRS_C_ENABLED
-// </e>
-
-// <q> BLE_HRS_ENABLED  - ble_hrs - Heart Rate Service
- 
-
-#ifndef BLE_HRS_ENABLED
-#define BLE_HRS_ENABLED 0
-#endif
-
-// <q> BLE_HTS_ENABLED  - ble_hts - Health Thermometer Service
- 
-
-#ifndef BLE_HTS_ENABLED
-#define BLE_HTS_ENABLED 0
-#endif
-
-// <q> BLE_IAS_C_ENABLED  - ble_ias_c - Immediate Alert Service Client
- 
-
-#ifndef BLE_IAS_C_ENABLED
-#define BLE_IAS_C_ENABLED 0
-#endif
-
-// <q> BLE_IAS_ENABLED  - ble_ias - Immediate Alert Service
- 
-
-#ifndef BLE_IAS_ENABLED
-#define BLE_IAS_ENABLED 0
-#endif
-
-// <q> BLE_LBS_C_ENABLED  - ble_lbs_c - Nordic LED Button Service Client
- 
-
-#ifndef BLE_LBS_C_ENABLED
-#define BLE_LBS_C_ENABLED 0
-#endif
-
-// <q> BLE_LBS_ENABLED  - ble_lbs - LED Button Service
- 
-
-#ifndef BLE_LBS_ENABLED
-#define BLE_LBS_ENABLED 0
-#endif
-
-// <q> BLE_LLS_ENABLED  - ble_lls - Link Loss Service
- 
-
-#ifndef BLE_LLS_ENABLED
-#define BLE_LLS_ENABLED 0
-#endif
-
-// <q> BLE_NUS_C_ENABLED  - ble_nus_c - Nordic UART Central Service
- 
-
-#ifndef BLE_NUS_C_ENABLED
-#define BLE_NUS_C_ENABLED 0
-#endif
-
-// <q> BLE_NUS_ENABLED  - ble_nus - Nordic UART Service
- 
-
-#ifndef BLE_NUS_ENABLED
-#define BLE_NUS_ENABLED 1
-#endif
-
-// <q> BLE_RSCS_C_ENABLED  - ble_rscs_c - Running Speed and Cadence Client
- 
-
-#ifndef BLE_RSCS_C_ENABLED
-#define BLE_RSCS_C_ENABLED 0
-#endif
-
-// <q> BLE_RSCS_ENABLED  - ble_rscs - Running Speed and Cadence Service
- 
-
-#ifndef BLE_RSCS_ENABLED
-#define BLE_RSCS_ENABLED 0
-#endif
-
-// <q> BLE_TPS_ENABLED  - ble_tps - TX Power Service
- 
-
-#ifndef BLE_TPS_ENABLED
-#define BLE_TPS_ENABLED 0
-#endif
-
-// </h> 
-//==========================================================
+//// <h> nRF_BLE 
+//
+////==========================================================
+//// <q> BLE_ADVERTISING_ENABLED  - ble_advertising - Advertising module
+// 
+//
+//#ifndef BLE_ADVERTISING_ENABLED
+//#define BLE_ADVERTISING_ENABLED 1
+//#endif
+//
+//// <q> BLE_DTM_ENABLED  - ble_dtm - Module for testing RF/PHY using DTM commands
+// 
+//
+//#ifndef BLE_DTM_ENABLED
+//#define BLE_DTM_ENABLED 0
+//#endif
+//
+//// <q> BLE_RACP_ENABLED  - ble_racp - Record Access Control Point library
+// 
+//
+//#ifndef BLE_RACP_ENABLED
+//#define BLE_RACP_ENABLED 0
+//#endif
+//
+//// <q> NRF_BLE_QWR_ENABLED  - nrf_ble_qwr - Queued writes support module (prepare/execute write)
+// 
+//
+//#ifndef NRF_BLE_QWR_ENABLED
+//#define NRF_BLE_QWR_ENABLED 0
+//#endif
+//
+//// <q> PEER_MANAGER_ENABLED  - peer_manager - Peer Manager
+// 
+//
+//#ifndef PEER_MANAGER_ENABLED
+//#define PEER_MANAGER_ENABLED 0
+//#endif
+//
+//// </h> 
+////==========================================================
+//
+//// <h> nRF_BLE_Services 
+//
+////==========================================================
+//// <q> BLE_ANCS_C_ENABLED  - ble_ancs_c - Apple Notification Service Client
+// 
+//
+//#ifndef BLE_ANCS_C_ENABLED
+//#define BLE_ANCS_C_ENABLED 0
+//#endif
+//
+//// <q> BLE_ANS_C_ENABLED  - ble_ans_c - Alert Notification Service Client
+// 
+//
+//#ifndef BLE_ANS_C_ENABLED
+//#define BLE_ANS_C_ENABLED 0
+//#endif
+//
+//// <q> BLE_BAS_C_ENABLED  - ble_bas_c - Battery Service Client
+// 
+//
+//#ifndef BLE_BAS_C_ENABLED
+//#define BLE_BAS_C_ENABLED 0
+//#endif
+//
+//// <q> BLE_BAS_ENABLED  - ble_bas - Battery Service
+// 
+//
+//#ifndef BLE_BAS_ENABLED
+//#define BLE_BAS_ENABLED 0
+//#endif
+//
+//// <q> BLE_CSCS_ENABLED  - ble_cscs - Cycling Speed and Cadence Service
+// 
+//
+//#ifndef BLE_CSCS_ENABLED
+//#define BLE_CSCS_ENABLED 0
+//#endif
+//
+//// <q> BLE_CTS_C_ENABLED  - ble_cts_c - Current Time Service Client
+// 
+//
+//#ifndef BLE_CTS_C_ENABLED
+//#define BLE_CTS_C_ENABLED 0
+//#endif
+//
+//// <q> BLE_DIS_ENABLED  - ble_dis - Device Information Service
+// 
+//
+//#ifndef BLE_DIS_ENABLED
+//#define BLE_DIS_ENABLED 0
+//#endif
+//
+//// <q> BLE_GLS_ENABLED  - ble_gls - Glucose Service
+// 
+//
+//#ifndef BLE_GLS_ENABLED
+//#define BLE_GLS_ENABLED 0
+//#endif
+//
+//// <q> BLE_HIDS_ENABLED  - ble_hids - Human Interface Device Service
+// 
+//
+//#ifndef BLE_HIDS_ENABLED
+//#define BLE_HIDS_ENABLED 0
+//#endif
+//
+//// <e> BLE_HRS_C_ENABLED - ble_hrs_c - Heart Rate Service Client
+////==========================================================
+//#ifndef BLE_HRS_C_ENABLED
+//#define BLE_HRS_C_ENABLED 0
+//#endif
+//#if  BLE_HRS_C_ENABLED
+//// <o> BLE_HRS_C_RR_INTERVALS_MAX_CNT - Maximum number of RR_INTERVALS per notification to be decoded 
+//#ifndef BLE_HRS_C_RR_INTERVALS_MAX_CNT
+//#define BLE_HRS_C_RR_INTERVALS_MAX_CNT 30
+//#endif
+//
+//#endif //BLE_HRS_C_ENABLED
+//// </e>
+//
+//// <q> BLE_HRS_ENABLED  - ble_hrs - Heart Rate Service
+// 
+//
+//#ifndef BLE_HRS_ENABLED
+//#define BLE_HRS_ENABLED 0
+//#endif
+//
+//// <q> BLE_HTS_ENABLED  - ble_hts - Health Thermometer Service
+// 
+//
+//#ifndef BLE_HTS_ENABLED
+//#define BLE_HTS_ENABLED 0
+//#endif
+//
+//// <q> BLE_IAS_C_ENABLED  - ble_ias_c - Immediate Alert Service Client
+// 
+//
+//#ifndef BLE_IAS_C_ENABLED
+//#define BLE_IAS_C_ENABLED 0
+//#endif
+//
+//// <q> BLE_IAS_ENABLED  - ble_ias - Immediate Alert Service
+// 
+//
+//#ifndef BLE_IAS_ENABLED
+//#define BLE_IAS_ENABLED 0
+//#endif
+//
+//// <q> BLE_LBS_C_ENABLED  - ble_lbs_c - Nordic LED Button Service Client
+// 
+//
+//#ifndef BLE_LBS_C_ENABLED
+//#define BLE_LBS_C_ENABLED 0
+//#endif
+//
+//// <q> BLE_LBS_ENABLED  - ble_lbs - LED Button Service
+// 
+//
+//#ifndef BLE_LBS_ENABLED
+//#define BLE_LBS_ENABLED 0
+//#endif
+//
+//// <q> BLE_LLS_ENABLED  - ble_lls - Link Loss Service
+// 
+//
+//#ifndef BLE_LLS_ENABLED
+//#define BLE_LLS_ENABLED 0
+//#endif
+//
+//// <q> BLE_NUS_C_ENABLED  - ble_nus_c - Nordic UART Central Service
+// 
+//
+//#ifndef BLE_NUS_C_ENABLED
+//#define BLE_NUS_C_ENABLED 0
+//#endif
+//
+//// <q> BLE_NUS_ENABLED  - ble_nus - Nordic UART Service
+// 
+//
+//#ifndef BLE_NUS_ENABLED
+//#define BLE_NUS_ENABLED 1
+//#endif
+//
+//// <q> BLE_RSCS_C_ENABLED  - ble_rscs_c - Running Speed and Cadence Client
+// 
+//
+//#ifndef BLE_RSCS_C_ENABLED
+//#define BLE_RSCS_C_ENABLED 0
+//#endif
+//
+//// <q> BLE_RSCS_ENABLED  - ble_rscs - Running Speed and Cadence Service
+// 
+//
+//#ifndef BLE_RSCS_ENABLED
+//#define BLE_RSCS_ENABLED 0
+//#endif
+//
+//// <q> BLE_TPS_ENABLED  - ble_tps - TX Power Service
+// 
+//
+//#ifndef BLE_TPS_ENABLED
+//#define BLE_TPS_ENABLED 0
+//#endif
+//
+//// </h> 
+////==========================================================
 
 // <h> nRF_Drivers 
 
@@ -3489,7 +3489,7 @@
 // <e> NRF_LOG_ENABLED - nrf_log - Logging
 //==========================================================
 #ifndef NRF_LOG_ENABLED
-#define NRF_LOG_ENABLED 0
+#define NRF_LOG_ENABLED 1
 #endif
 #if  NRF_LOG_ENABLED
 // <e> NRF_LOG_USES_COLORS - If enabled then ANSI escape code for colors is prefixed to every string
@@ -3558,7 +3558,7 @@
 // <4=> Debug 
 
 #ifndef NRF_LOG_DEFAULT_LEVEL
-#define NRF_LOG_DEFAULT_LEVEL 3
+#define NRF_LOG_DEFAULT_LEVEL 4
 #endif
 
 // <e> NRF_LOG_DEFERRED - Enable deffered logger.
@@ -3566,7 +3566,7 @@
 // <i> Log data is buffered and can be processed in idle.
 //==========================================================
 #ifndef NRF_LOG_DEFERRED
-#define NRF_LOG_DEFERRED 1
+#define NRF_LOG_DEFERRED 0
 #endif
 #if  NRF_LOG_DEFERRED
 // <o> NRF_LOG_DEFERRED_BUFSIZE - Size of the buffer for logs in words. 
