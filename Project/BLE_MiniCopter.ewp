@@ -641,7 +641,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state></state>
+          <state>BLE_MiniCopter.srec</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -1938,6 +1938,9 @@
       <name>$PROJ_DIR$\..\App_Drivers\app_drv_button.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\App_Drivers\app_drv_esp.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\App_Drivers\app_drv_led.c</name>
     </file>
     <file>
@@ -1946,6 +1949,12 @@
   </group>
   <group>
     <name>App_Tasks</name>
+    <file>
+      <name>$PROJ_DIR$\..\App_Tasks\app_task_button.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\App_Tasks\app_task_comm_nrf.c</name>
+    </file>
     <file>
       <name>$PROJ_DIR$\..\App_Tasks\app_task_led.c</name>
     </file>
@@ -1958,6 +1967,9 @@
   </group>
   <group>
     <name>Application</name>
+    <file>
+      <name>$PROJ_DIR$\..\Application\app_common.c</name>
+    </file>
     <file>
       <name>$PROJ_DIR$\..\Application\app_global_include.h</name>
     </file>

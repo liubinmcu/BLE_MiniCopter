@@ -12,9 +12,6 @@
 #include "app_timer.h"
 #include "app_uart.h"
 
-#include "nrf_log.h"
-#include "nrf_log_ctrl.h"
-
 #include "FreeRTOS.h"
 #include "task.h"
 
@@ -25,6 +22,10 @@
 #include "app_drv_led.h"
 #include "app_drv_button.h"
 #include "app_drv_pwm.h"
+
+#include "nrf_log.h"
+#include "nrf_log_ctrl.h"
+
 
 
 

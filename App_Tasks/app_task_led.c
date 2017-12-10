@@ -6,6 +6,7 @@
 void app_task_led_blink (void * pvParameter)
 {
     UNUSED_PARAMETER(pvParameter);
+    app_drv_led_init();
     while (true)
     {
         app_drv_led_invert(APP_BSP_LED_0);
