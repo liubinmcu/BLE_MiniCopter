@@ -99,7 +99,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>nrf51422_xxac	nRF51422_xxAC</state>
+          <state>nrf51822_xxaa	nRF51822_xxAA</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -177,7 +177,6 @@
           <state>NRF51422</state>
           <state>BOARD_PCA10028</state>
           <state>NRF51</state>
-          <state>SWI_DISABLE0</state>
           <state>FREERTOS</state>
           <state>__STACK_SIZE=2048</state>
           <state>__HEAP_SIZE=1024</state>
@@ -322,6 +321,9 @@
           <state>$PROJ_DIR$\..\nRF_Drivers\uart</state>
           <state>$PROJ_DIR$\..\nRF_Drivers\ppi</state>
           <state>$PROJ_DIR$\..\nRF_Drivers\timer</state>
+          <state>$PROJ_DIR$\..\nRF_Drivers\twi_master</state>
+          <state>$PROJ_DIR$\..\nRF_Drivers\twi_master\deprecated</state>
+          <state>$PROJ_DIR$\..\nRF_Drivers\twi_master\deprecated\config</state>
           <state>$PROJ_DIR$\..\nRF_Libraries\bsp</state>
           <state>$PROJ_DIR$\..\nRF_Libraries\button</state>
           <state>$PROJ_DIR$\..\nRF_Libraries\pwm</state>
@@ -1938,10 +1940,16 @@
       <name>$PROJ_DIR$\..\App_Drivers\app_drv_button.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\App_Drivers\app_drv_esp.c</name>
+      <name>$PROJ_DIR$\..\App_Drivers\app_drv_esb.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\App_Drivers\app_drv_led.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\App_Drivers\app_drv_mpu6050.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\App_Drivers\app_drv_mpu6050_sw.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\App_Drivers\app_drv_pwm.c</name>
@@ -1954,6 +1962,12 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\App_Tasks\app_task_comm_nrf.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\App_Tasks\app_task_esb_rx.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\App_Tasks\app_task_esb_tx.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\App_Tasks\app_task_led.c</name>
@@ -2031,7 +2045,13 @@
       <name>$PROJ_DIR$\..\nRF_Drivers\timer\nrf_drv_timer.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\nRF_Drivers\twi_master\nrf_drv_twi.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\nRF_Drivers\uart\nrf_drv_uart.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\nRF_Drivers\twi_master\deprecated\twi_sw_master.c</name>
     </file>
   </group>
   <group>

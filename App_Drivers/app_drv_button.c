@@ -14,7 +14,7 @@
 //        case BSP_EVENT_KEY_1:
 //            printf("test button1\n");
 //            break;
-//            
+//
 //        case BSP_EVENT_KEY_2:
 //            printf("test button2\n");
 //            break;
@@ -30,10 +30,10 @@
 //}
 
 
-void app_drv_button_init(bsp_evt_handler_t bsp_evt_handler)
+void app_drv_button_init( bsp_evt_handler_t bsp_evt_handler )
 {
-    uint32_t err_code = bsp_init(BSP_INIT_BUTTONS,
-                                 APP_TIMER_TICKS(100, APP_TIMER_PRESCALER),
-                                 bsp_evt_handler);
-    APP_ERROR_CHECK(err_code);
+    uint32_t err_code = bsp_init( BSP_INIT_BUTTONS,
+                                  APP_TIMER_TICKS( 100, APP_TIMER_PRESCALER ),
+                                  bsp_evt_handler );
+    APP_ERROR_CHECK( err_code );
 }

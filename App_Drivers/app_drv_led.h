@@ -9,8 +9,8 @@
 
 #define APP_BSP_LED_0          24
 #define APP_BSP_LED_1          25
-#define APP_BSP_LED_2          21
-#define APP_BSP_LED_3          22
+#define APP_BSP_LED_2          28
+#define APP_BSP_LED_3          29
 
 #define APP_LEDS_ACTIVE_STATE 1
 

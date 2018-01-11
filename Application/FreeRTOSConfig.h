@@ -97,21 +97,28 @@
 #define configUSE_TICKLESS_IDLE_SIMPLE_DEBUG                                      1 /* See into vPortSuppressTicksAndSleep source code for explanation */
 #define configCPU_CLOCK_HZ                                                        ( SystemCoreClock )
 #define configTICK_RATE_HZ                                                        1000
-#define configMAX_PRIORITIES                                                      ( 3 )
+#define configMAX_PRIORITIES                                                      ( 10 )
 #define configMINIMAL_STACK_SIZE                                                  ( 60 )
 #define configTOTAL_HEAP_SIZE                                                     ( 4096 )
-#define configMAX_TASK_NAME_LEN                                                   ( 4 )
+#define configMAX_TASK_NAME_LEN                                                   ( 16 )
 #define configUSE_16_BIT_TICKS                                                    0
 #define configIDLE_SHOULD_YIELD                                                   1
 #define configUSE_MUTEXES                                                         1
 #define configUSE_RECURSIVE_MUTEXES                                               1
 #define configUSE_COUNTING_SEMAPHORES                                             1
 #define configUSE_ALTERNATIVE_API                                                 0    /* Deprecated! */
-#define configQUEUE_REGISTRY_SIZE                                                 2
-#define configUSE_QUEUE_SETS                                                      0
-#define configUSE_TIME_SLICING                                                    0
+#define configQUEUE_REGISTRY_SIZE                                                 10
+#define configUSE_QUEUE_SETS                                                      1
+#define configUSE_TIME_SLICING                                                    1
 #define configUSE_NEWLIB_REENTRANT                                                0
 #define configENABLE_BACKWARD_COMPATIBILITY                                       1
+#define configUSE_TASK_NOTIFICATIONS                                              1    //为1时开启任务通知功能，默认开启
+
+/***************************************************************************************************************/
+/*                                FreeRTOS与内存申请有关配置选项                                               */
+/***************************************************************************************************************/
+#define configSUPPORT_DYNAMIC_ALLOCATION        1                       //支持动态内存申请
+
 
 /* Hook function related definitions. */
 #define configUSE_IDLE_HOOK                                                       0
@@ -121,8 +128,8 @@
 
 /* Run time and task stats gathering related definitions. */
 #define configGENERATE_RUN_TIME_STATS                                             0
-#define configUSE_TRACE_FACILITY                                                  0
-#define configUSE_STATS_FORMATTING_FUNCTIONS                                      0
+#define configUSE_TRACE_FACILITY                                                  1
+#define configUSE_STATS_FORMATTING_FUNCTIONS                                      1
 
 /* Co-routine definitions. */
 #define configUSE_CO_ROUTINES                                                     0

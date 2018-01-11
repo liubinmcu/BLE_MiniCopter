@@ -1,30 +1,31 @@
 #include "bsp_hardware.h"
 #include "app_global_include.h"
+#include "app_task_comm_nrf.h"
+#include "app_drv_mpu6050_sw.h"
 
 void clocks_start( void )
 {
     // Start HFCLK and wait for it to start.
     NRF_CLOCK->EVENTS_HFCLKSTARTED = 0;
     NRF_CLOCK->TASKS_HFCLKSTART = 1;
-    while (NRF_CLOCK->EVENTS_HFCLKSTARTED == 0);
+    while( NRF_CLOCK->EVENTS_HFCLKSTARTED == 0 );
 }
 
-void bsp_hardware_init(void)
+void bsp_hardware_init( void )
 {
     uint32_t err_code;
-    
     clocks_start();
     // Initialize.
     /* Initialize clock driver for better time accuracy in FREERTOS */
     err_code = nrf_drv_clock_init();
-    APP_ERROR_CHECK(err_code);
-    
+    APP_ERROR_CHECK( err_code );
     err_code = logging_init();
-    APP_ERROR_CHECK(err_code);
-    
+    APP_ERROR_CHECK( err_code );
     //初始化软件定时器模块，该定时器模块使用RTC1 来软件模拟定时器
-    APP_TIMER_INIT(APP_TIMER_PRESCALER, APP_TIMER_OP_QUEUE_SIZE, false);
-//    app_drv_led_init();
+    APP_TIMER_INIT( APP_TIMER_PRESCALER, APP_TIMER_OP_QUEUE_SIZE, false );
+    app_drv_led_init();
 //    app_drv_pwm_init();
-//    app_drv_button_init();
+//    app_drv_mpu_init();
+    mpu6050_init(0x68);
+    app_task_comm_nrf(NULL);
 }
